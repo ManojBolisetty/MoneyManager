@@ -1,0 +1,10 @@
+.deleteButton {
+  height: 25px;
+}
+.table-row {
+  border-top: none;
+}
+.cell {
+  color: #475569;
+  font-weight: unset;
+}
