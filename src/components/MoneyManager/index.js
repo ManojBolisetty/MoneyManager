@@ -3,6 +3,7 @@ import './index.css'
 import {v4 as uuidv4} from 'uuid'
 import MoneyDetails from '../MoneyDetails'
 import TransactionItem from '../TransactionItem'
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const transactionTypeOptions = [
   {
@@ -45,7 +46,12 @@ class MoneyManager extends Component {
         type: 'INCOME',
         transactionList: [
           ...prevState.transactionList,
-          {title, amount: parseInt(amount), type, id: uuidv4()},
+          {
+            title,
+            amount: parseInt(amount),
+            type: type === 'INCOME' ? 'Income' : 'Expenses',
+            id: uuidv4(),
+          },
         ],
         title: '',
         amount: '',
@@ -65,7 +71,7 @@ class MoneyManager extends Component {
     const {transactionList} = this.state
     let income = 0
     transactionList.forEach(eachItem => {
-      if (eachItem.type === 'INCOME') {
+      if (eachItem.type === 'Income') {
         console.log(eachItem.amount)
 
         income += eachItem.amount
@@ -78,7 +84,7 @@ class MoneyManager extends Component {
     const {transactionList} = this.state
     let expenses = 0
     transactionList.forEach(eachItem => {
-      if (eachItem.type === transactionTypeOptions[1].optionId) {
+      if (eachItem.type === transactionTypeOptions[1].displayText) {
         expenses += eachItem.amount
       }
     })

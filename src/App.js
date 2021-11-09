@@ -1,5 +1,4 @@
 import MoneyManager from './components/MoneyManager'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 import './App.css'
 
